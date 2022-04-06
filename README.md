@@ -149,7 +149,7 @@ All minifigure heads are variables. Head accessories are left undefined, so you 
 
 A few variables are set aside as special and should have additional consideration when used.
 
-| Variable         | Use     | Notes |
+| Part         | Use     | Notes |
 |--------------|-----------|------------|
 | Basic smiley head, `3626ap01` (![smiley head](images/3626ap0125.png)) | Command line args      | Additional command line args passed into the script will be put here        |
 | Basic smiley head, female, `3626cpb0633`  (![smiley head, female](images/3626cpb063325.png))   | Function args | Any arguments when calling a function will be placed into this variable. This variable can also be used to store return values from functions.      |
@@ -176,9 +176,18 @@ Letter blocks (similar to the numbers, above) also function as letters. Those pa
 
 #### Booleans
 
+| Part  | Value  | Notes  |
+|---|---|---|
+| Technic pin, `2780` (![technic pin](images/278025.png)) | True  | All numbers except zero will return true, as will any variable that has text of at least one character in length. |
+| Technic half pin, `4274` (![technic half pin](images/427425.png)) | False  | "Is the pin whole?" Variables that evaluate to an empty string ("") or evaluate to zero will evaluate to false |
+
 #### Other Constants
 
 There are a few other defined constants that can be helpful:
+
+| Part  | Value  | Notes  |
+|---|---|---|
+| Window frame with no glass pane, `60592` (![empty window frame](images/6059225.png)) | Null  | Helpful to compare if a variable is empty or similar null results  |
 
 ### Assignments
 
@@ -283,7 +292,7 @@ There are thousands of "undefined" parts available for use, intentionally includ
 The META command to do this in your code looks like this:
 
 ```l-lang
-0 !TOKEN 2412=3001
+0 !LLANG TOKEN 2412=3001
 ```
 
 This TOKEN command will then add the part `3001`, a generic 2x4 brick (![a 2x4 brick](images/300125.png)), to whatever token `2412` is assigned to (`2412` is that grill piece, so in this case it's making it an 'if' command).
@@ -291,9 +300,9 @@ This TOKEN command will then add the part `3001`, a generic 2x4 brick (![a 2x4 b
 Multiple assignments can be made like this, just using any original token value to map to any others. These commands, for instance, create a few new variable options:
 
 ```l-lang
-0 !TOKEN 3626ap01=4738a
-0 !TOKEN 3626ap01=18742
-0 !TOKEN 3626ap01=92926
+0 !LLANG TOKEN 3626ap01=4738a
+0 !LLANG TOKEN 3626ap01=18742
+0 !LLANG TOKEN 3626ap01=92926
 ```
 
 In this case, `3626ap01` is a minifigure head (![minifigure head](images/3626ap0125.png)), and `4738a`, `18742`, and `92926` are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With these lines, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
@@ -301,7 +310,7 @@ In this case, `3626ap01` is a minifigure head (![minifigure head](images/3626ap0
 These mappings can also be done on one line, separated with commas (but no spaces), like so:
 
 ```l-lang
-0 !TOKEN 3626ap01=4738a,18742,92926
+0 !LLANG TOKEN 3626ap01=4738a,18742,92926
 ```
 
 ## License
