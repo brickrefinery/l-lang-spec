@@ -63,6 +63,55 @@ The entire file format is listed on the [ldraw.org](https://www.ldraw.org/articl
 
 Ldraw files (.ldr files) are readable by most LEGO CAD programs, and any program written for L will still be a valid Ldraw file.
 
+A ldraw file is written as a series of lines, each line is one ldraw command. They fall into one of six variations, with the first character of each line noting what it is:
+
+* 0: Comment or META Command
+* 1: Sub-file reference
+* 2: Line
+* 3: Triangle
+* 4: Quadrilateral
+* 5: Optional Line
+
+Commands 2-4 are used to create the actual shapes of blocks and such. We're not going to address them in the standard here, and instead use pre-defined blocks for our code. These blocks, in turn, use several of those 2-4 commands to create each block, but that's all handled behind the scenes.
+
+The comments and META commands have several official options that can be found in the file spec, linked above. For our programs we're going to largely limit ourselves to the defaults. A simple ldraw file might then look like this:
+
+```l-lang
+0 Name: Sample Program
+0 Author: Herbie Kay
+1 133 -190 160 0 1 0 0 0 1 0 -0 0 1 3004.dat
+1 15 -190 160 20 1 0 0 0 1 0 -0 0 1 3004.dat
+1 4 -190 152 10 1 0 0 0 1 0 -0 0 1 3068b.dat
+1 14 -190 184 10 1 0 0 0 1 0 -0 0 1 3022.dat
+```
+
+The lines starting with a 0 are META/comments (in this case the file and author name), and the lines starting with a 1 are the four blocks used to make up this model. Let's look at one line as an example:
+
+```l-lang
+1 133 -190 160 0 1 0 0 0 1 0 -0 0 1 3004.dat
+```
+
+For the purpose of L, we're going to choose to ignore most of this line, allowing the user to put this part anywhere in the model without affecting how it will be interpreted, but the line can be broken down like this:
+
+```l-lang
+1  133      -190 160 0           1 0 0 0 1 0 -0 0 1             3004.dat
+1 <color> <x y z {coordinates}> <a b c d e f g h i {rotation}> <part>
+```
+
+To make this language as flexible as possible for making models that can both be compiled and actually make something, the color, coordinates, and rotation are all ignored by the interpreter.
+
+This leaves us with pile of parts, then, to make our language.
+
+A META command that's going to be very useful for us is one that helps organize those parts together. It's a "STEP" command and the line is just this:
+
+```l-lang
+0 STEP
+```
+
+In models, these steps map to steps in an instruction booklet to help someone build the model.
+
+We can also have callouts to other "files" which are submodels (for instance, building a tree as its own little thing before being added to the larger model of a house). These can be within the same file, or a pointer to an external file, allowing scripts to be able to call other scripts. How this works is described in the file standard, and below in the *functions* section.
+
 ## Advanced Features
 
 Advanced features are intended as a convenience but may sometimes bend the rules and conventions established above.
@@ -101,7 +150,7 @@ Multiple assignments can be made like this, just using any original token value 
 0 !TOKEN 3626ap01=92926
 ```
 
-In this case, 3626ap01 is a minifure head, and 4738a, 18742, and 92926 are a treasure chest, a bucket, and a trash can. With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) can be used to create the mapping.
+In this case, 3626ap01 is a minifure head (![minifigure head](images/3626ap0125.png)), and 4738a, 18742, and 92926 are a treasure chest, a bucket, and a trash can. With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) can be used to create the mapping.
 
 These mappings can also be done on one line, separated with commas (but no spaces), like so:
 
