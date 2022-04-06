@@ -152,7 +152,37 @@ A few variables are set aside as special and should have additional consideratio
 | Variable         | Use     | Notes |
 |--------------|-----------|------------|
 | Basic smiley head, `3626ap01` (![smiley head](images/3626ap0125.png)) | Command line args      | Additional command line args passed into the script will be put here        |
-| Basic smiley head, female, `3626cpb0633`  (![smiley head, female](images/3626cpb063325.png))   | Function return variable | While functions don't have a return as such, by convention they should store values in this variable for return. Adhering to a standard here makes sharing functions across multiple files more straightforward.       |
+| Basic smiley head, female, `3626cpb0633`  (![smiley head, female](images/3626cpb063325.png))   | Function args | Any arguments when calling a function will be placed into this variable. This variable can also be used to store return values from functions.      |
+
+### Constants
+
+#### Numbers
+
+Numbers are the standard number blocks 0-9:
+
+![number blocks](images/numbers.png)
+
+The part numbers for these are `3005pt0`, `3005pt1`, `3005pt2`, ... `3005pt9`.
+
+#### Letters
+
+Letters use the letter tiles:
+
+![letter tiles](images/letters.png)
+
+The part numbers for these are `3070bpb009` (letter a), `3070bpb010` (letter b), `3070bpb011` (letter c), ... `3070bpb034` (letter z)
+
+### Assignments
+
+### Math
+
+### Strings
+
+### Comparison
+
+### Loops
+
+### Additional functions
 
 ## Advanced Features
 
@@ -182,7 +212,7 @@ The META command to do this in your code looks like this:
 0 !TOKEN 2412=3001
 ```
 
-This TOKEN command will then add the part 3001, a generic 2x4 brick (![a 2x4 brick](images/300125.png)), to whatever token 2412 is assigned to (2412 is that grill piece, so in this case it's making it an 'if' command).
+This TOKEN command will then add the part `3001`, a generic 2x4 brick (![a 2x4 brick](images/300125.png)), to whatever token `2412` is assigned to (`2412` is that grill piece, so in this case it's making it an 'if' command).
 
 Multiple assignments can be made like this, just using any original token value to map to any others. These commands, for instance, create a few new variable options:
 
@@ -192,7 +222,7 @@ Multiple assignments can be made like this, just using any original token value 
 0 !TOKEN 3626ap01=92926
 ```
 
-In this case, 3626ap01 is a minifure head (![minifigure head](images/3626ap0125.png)), and 4738a, 18742, and 92926 are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
+In this case, `3626ap01` is a minifure head (![minifigure head](images/3626ap0125.png)), and `4738a`, `18742`, and `92926` are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
 
 These mappings can also be done on one line, separated with commas (but no spaces), like so:
 
