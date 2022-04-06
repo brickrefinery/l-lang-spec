@@ -191,7 +191,7 @@ There are a few other defined constants that can be helpful:
 
 ### Assignments
 
-There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
+There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
 
 So, to look back up to our original assignment question of "x = 10", let's create that now:
 
@@ -213,7 +213,10 @@ Instead of the clip, there's also a 1x1 block with an "=" pattern on it (part `3
 
 ### Math
 
-### Strings
+| Part  | Value  | Notes  |
+|---|---|---|
+| 1x1 brick with a "plus" sign, `3005ptplusb` (![empty window frame](images/3005ptplusb25.png)) | plus  |  |
+| 1x1 brick with a "minus" sign, `3005ptpminusb` (![empty window frame](images/3005ptpminusb25.png)) | minus  |  |
 
 ### Comparison
 
@@ -266,6 +269,8 @@ This would create a part set that looks like:
 ### Loops
 
 ### Additional functions
+
+### Custom functions
 
 ## Advanced Features
 
