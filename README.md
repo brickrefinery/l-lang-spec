@@ -174,6 +174,24 @@ The part numbers for these are `3070bpb009` (letter a), `3070bpb010` (letter b),
 
 ### Assignments
 
+There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts together, with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
+
+So, to look back up to our original assignment question of "x = 10", let's create that now:
+
+```l-lang
+1 1 -110 -8 -30 1 0 0 0 1 0 0 0 1 4085a.dat
+1 4 -70 -24 -50 1 0 0 0 1 0 0 0 1 3626cpb3.dat
+1 15 -30 -24 -50 1 0 0 0 1 0 0 0 1 3005pt1.dat
+1 15 -10 -24 -50 1 0 0 0 1 0 0 0 1 3005pt0.dat
+0 STEP
+```
+
+Which would create something that looks like this:
+
+![an example assignment](images/assignment.png)
+
+Because positions and color are ignored, when building your boat (or house, or dragon, ...) these parts can be put anywhere in the model.
+
 ### Math
 
 ### Strings
