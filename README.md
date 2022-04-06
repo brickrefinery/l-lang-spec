@@ -28,7 +28,7 @@ While this is a crude summary that's better tackled by the link above, we'll con
 
 * Iteration (x + 1)
 * Variables
-* Comparison operatiors (if...)
+* Comparison operators (if...)
 * Loops
 
 To be a functional scripting language we'll need quite a bit more than that though.
@@ -53,19 +53,19 @@ While the file format is text-based, and any text editor can then edit that file
 
 ### LDraw output
 
-With the input of the files being LEGO CAD files (ldraw files), the output should also produce a valid ldraw file.
+With the input of the files being LEGO CAD files (LDraw files), the output should also produce a valid LDraw file.
 
 Note: there is no expectation that this output is itself successfully readable by L, but should be readable by any LEGO CAD program.
 
 ## File Standard
 
-The file standard used by LEGO CAD programs is typically in the ldraw format, so that's the format we'll use for this language.
+The file standard used by LEGO CAD programs is typically in the LDraw format, so that's the format we'll use for this language.
 
-The entire file format is listed on the [ldraw.org](https://www.ldraw.org/article/218.html) site, but we're going to minimize what parts of the file we use.
+The entire file format is listed on the [LDraw.org](https://www.ldraw.org/article/218.html) site, but we're going to minimize what parts of the file we use.
 
-Ldraw files (.ldr files) are readable by most LEGO CAD programs, and any program written for L will still be a valid Ldraw file.
+LDraw files (.ldr files) are readable by most LEGO CAD programs, and any program written for L will still be a valid LDraw file.
 
-A ldraw file is written as a series of lines, each line is one ldraw command. They fall into one of six variations, with the first character of each line noting what it is:
+A LDraw file is written as a series of lines, each line is one LDraw command. They fall into one of six variations, with the first character of each line noting what it is:
 
 * 0: Comment or META Command
 * 1: Sub-file reference
@@ -76,7 +76,7 @@ A ldraw file is written as a series of lines, each line is one ldraw command. Th
 
 Commands 2-4 are used to create the actual shapes of blocks and such. We're not going to address them in the standard here, and instead use pre-defined blocks for our code. These blocks, in turn, use several of those 2-4 commands to create each block, but that's all handled behind the scenes.
 
-The comments and META commands have several official options that can be found in the file spec, linked above. For our programs we're going to largely limit ourselves to the defaults. A simple ldraw file might then look like this:
+The comments and META commands have several official options that can be found in the file spec, linked above. For our programs we're going to largely limit ourselves to the defaults. A simple LDraw file might then look like this:
 
 ```l-lang
 0 Name: Sample Program
@@ -112,7 +112,7 @@ A META command that's going to be very useful for us is one that helps organize 
 
 In models, these steps map to steps in an instruction booklet to help someone build the model.
 
-We can also have callouts to other "files" which are submodels (for instance, building a tree as its own little thing before being added to the larger model of a house). These can be within the same file, or a pointer to an external file, allowing scripts to be able to call other scripts. How this works is described in the file standard, and below in the *functions* section.
+We can also reference other models (for instance, building a tree as its own little thing before being added to the larger model of a house). These can be within the same file as a small submodel, or a pointer to an external file, allowing scripts to be able to call other scripts. How this works is described in the file standard, and below in the *functions* section.
 
 ## Tokens
 
@@ -133,7 +133,7 @@ x
 0 STEP
 ```
 
-Though, obviously, we'll want to represent those peices with, well, LEGO pieces. This section will describe just how we are doing that.
+Though, obviously, we'll want to represent those pieces with, well, LEGO pieces. This section will describe just how we are doing that.
 
 ### Variables
 
@@ -170,7 +170,9 @@ Letters use the letter tiles:
 
 ![letter tiles](images/letters.png)
 
-The part numbers for these are `3070bpb009` (letter a), `3070bpb010` (letter b), `3070bpb011` (letter c), ... `3070bpb034` (letter z)
+The part numbers for these are `3070bpb009` (letter a), `3070bpb010` (letter b), `3070bpb011` (letter c), ... `3070bpb034` (letter z).
+
+Letter blocks (similar to the numbers, above) also function as letters. Those part numbers are `3005pta`, `3005ptb`, `3005ptc`, ... `3005ptz`.
 
 ### Assignments
 
@@ -192,6 +194,8 @@ Which would create something that looks like this:
 
 Because positions and color are ignored, when building your boat (or house, or dragon, ...) these parts can be put anywhere in the model.
 
+Instead of the clip, there's also a 1x1 block with an "=" pattern on it (part `3005ptisb`) which also functions as an assignment operator in the same way the clip does.
+
 ### Math
 
 ### Strings
@@ -208,7 +212,7 @@ Advanced features are intended as a convenience but may sometimes bend the rules
 
 ### Comments
 
-It's disappointing that comments are relegated to the "advanced" section, but sticking within the limits of the LEGO CAD as an IDE, there isn't a trivial way to add arbitray text.
+It's disappointing that comments are relegated to the "advanced" section, but sticking within the limits of the LEGO CAD as an IDE, there isn't a trivial way to add arbitrary text.
 
 To add a comment, we use a standard META command:
 
@@ -216,7 +220,7 @@ To add a comment, we use a standard META command:
 0 // <comment>
 ```
 
-This form of commenting is already part of the Ldraw spec and isn't changed or supplimented further. This allows comments to be handled correctly in any program that already supports the Ldraw file format.
+This form of commenting is already part of the LDraw spec and isn't changed or supplemented further. This allows comments to be handled correctly in any program that already supports the LDraw file format.
 
 ### Token mapping
 
@@ -240,7 +244,7 @@ Multiple assignments can be made like this, just using any original token value 
 0 !TOKEN 3626ap01=92926
 ```
 
-In this case, `3626ap01` is a minifure head (![minifigure head](images/3626ap0125.png)), and `4738a`, `18742`, and `92926` are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
+In this case, `3626ap01` is a minifigure head (![minifigure head](images/3626ap0125.png)), and `4738a`, `18742`, and `92926` are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
 
 These mappings can also be done on one line, separated with commas (but no spaces), like so:
 
