@@ -41,7 +41,7 @@ Impose as few limitations on your construction as possible to implement the lang
 
 Wherever possible, choose parts for tokens that imply what they represent.
 
-**Practical example:** Minifigure heads used as variable names since their "brains" are what hold the information.
+**Practical example:** Minifigure heads (![minifigure head](images/3626ap0125.png)) used as variable names since their "brains" are what hold the information.
 
 ### Goal: Coding done within an IDE (like stud.io)
 
@@ -140,9 +140,9 @@ The META command to do this in your code looks like this:
 0 !TOKEN 2412=3001
 ```
 
-This TOKEN command will then add the part 3001 (a generic 2x4 brick) to whatever token 2412 is assigned to (2412 is that grill piece, so in this case it's making it an 'if' command).
+This TOKEN command will then add the part 3001, a generic 2x4 brick (![a 2x4 brick](images/300125.png)), to whatever token 2412 is assigned to (2412 is that grill piece, so in this case it's making it an 'if' command).
 
-Multiple assignments can be made like this, just using any original token value to map to any others. This command, for instance, creates a few new variable options:
+Multiple assignments can be made like this, just using any original token value to map to any others. These commands, for instance, create a few new variable options:
 
 ```l-lang
 0 !TOKEN 3626ap01=4738a
@@ -150,7 +150,7 @@ Multiple assignments can be made like this, just using any original token value 
 0 !TOKEN 3626ap01=92926
 ```
 
-In this case, 3626ap01 is a minifure head (![minifigure head](images/3626ap0125.png)), and 4738a, 18742, and 92926 are a treasure chest, a bucket, and a trash can. With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) can be used to create the mapping.
+In this case, 3626ap01 is a minifure head (![minifigure head](images/3626ap0125.png)), and 4738a, 18742, and 92926 are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
 
 These mappings can also be done on one line, separated with commas (but no spaces), like so:
 
