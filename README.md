@@ -12,6 +12,8 @@ L is a language that takes the standard file format of LEGO CAD programs and sho
 
 While nothing in here should be taken seriously, the language itself takes itself seriously, and actual programs (within limits) can be made using it.
 
+This language spec makes some assumptions that you have some coding background, but as much as possible is trying to limit how much technical depth you need to catch it all.
+
 ## Philosophy
 
 "Why?" is often a hard question to answer, and in this case it may be harder than usual. There's little to "learn" here - learning how to make a complier is documented better than this ever will, and learning to code could be done by picking any other language - but there is joy to be found. And that, joy, is good enough.
@@ -111,6 +113,46 @@ A META command that's going to be very useful for us is one that helps organize 
 In models, these steps map to steps in an instruction booklet to help someone build the model.
 
 We can also have callouts to other "files" which are submodels (for instance, building a tree as its own little thing before being added to the larger model of a house). These can be within the same file, or a pointer to an external file, allowing scripts to be able to call other scripts. How this works is described in the file standard, and below in the *functions* section.
+
+## Tokens
+
+Tokens represent commands and keywords in a language. This is how we'll give meaning to our code. For example to code something like "x = 10" we need to know how to represent a variable (x), an assignment operator (=) and have some way to deal with values (10).
+
+The end of each command (like the x = 10, above) should end in a step command:
+
+```l-lang
+0 STEP
+```
+
+And since every token or block is also a separate line, a command like our x = 10 will ultimately have to look closer to this:
+
+```l-lang
+x
+=
+10
+0 STEP
+```
+
+Though, obviously, we'll want to represent those peices with, well, LEGO pieces. This section will describe just how we are doing that.
+
+### Variables
+
+* Variables are all global in scope.
+* Variables are all untyped.
+
+All minifigure heads are variables. Head accessories are left undefined, so you can dress up your minifigure heads in the model however you like, though the head part number itself (the face design) is what is used to "name" an track the variable.
+
+![variables](images/variables.png)
+> *Facial expressions can make great ways to imply what sort of information a given variable holds...*
+
+#### Special variables
+
+A few variables are set aside as special and should have additional consideration when used.
+
+| Variable         | Use     | Notes |
+|--------------|-----------|------------|
+| Basic smiley head, `3626ap01` (![smiley head](images/3626ap0125.png)) | Command line args      | Additional command line args passed into the script will be put here        |
+| Basic smiley head, female, `3626cpb0633`  (![smiley head, female](images/3626cpb063325.png))   | Function return variable | While functions don't have a return as such, by convention they should store values in this variable for return. Adhering to a standard here makes sharing functions across multiple files more straightforward.       |
 
 ## Advanced Features
 
