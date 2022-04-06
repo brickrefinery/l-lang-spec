@@ -174,9 +174,15 @@ The part numbers for these are `3070bpb009` (letter a), `3070bpb010` (letter b),
 
 Letter blocks (similar to the numbers, above) also function as letters. Those part numbers are `3005pta`, `3005ptb`, `3005ptc`, ... `3005ptz`.
 
+#### Booleans
+
+#### Other Constants
+
+There are a few other defined constants that can be helpful:
+
 ### Assignments
 
-There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts together, with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
+There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
 
 So, to look back up to our original assignment question of "x = 10", let's create that now:
 
@@ -202,13 +208,59 @@ Instead of the clip, there's also a 1x1 block with an "=" pattern on it (part `3
 
 ### Comparison
 
+To get the programmatic equivalent of "If \<x\>, then \<y\>" we have to create some way to do comparisons.
+
+The grill piece, part 2412 (![a grill piece](images/2412b25.png)), seems appropriate here since it implies that some things could slip through the grill and some things can't. Sort of an "if this is small enough..." analogy.
+
+The full list of comparison operators is here:
+
+| Part         | Operator     | Notes |
+|--------------|-----------|------------|
+| 2x1 tile with grill, `2412` (![a grill piece](images/2412b25.png)) | "If"      | See below for example usage        |
+| Road side with turn arrow, `30258pb005` (![road sign with turn arrow](images/30258pb00525.png)) | "Then"      | Used to mark the break between the if and the actions to take. See below for usage example.        |
+| 1x1 brick with clip, `30241b` (![1x1 brick with clip](images/30241b25.png))   | Equals | This part parallels the assignment operator (a clip) and is meant to evoke the question "does it clip?" |
+| 1x1 double slope, `35464` (![1x1 double slope](images/3546425.png))   | Less than | Requires numeric arguments |
+| 2x2 double slope, `3043` (![2x2 double slope](images/304325.png))   | Greater than | Requires numeric arguments |
+
+An example of this might be to create a sort of "max" value check. Make X = the max number of the variables Y and Z. (in other languages this might look like `X = max(Y, Z)`, for instance).
+
+```l-lang
+1 4 -30 -8 -10 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 10 -24 -10 1 0 0 0 1 0 0 0 1 3626bp3n.dat
+1 14 50 -24 -10 1 0 0 0 1 0 0 0 1 3626cp8m.dat
+0 STEP
+1 321 -80 -8 -130 0 0 0 0 1 0 0 0 0 2412b.dat
+1 14 -50 -24 -130 1 0 0 0 1 0 0 0 1 3626cpb1358.dat
+1 2 0 -24 -140 0 0 -1 0 1 0 1 0 0 3043.dat
+1 14 50 -24 -130 1 0 0 0 1 0 0 0 1 3626cp8m.dat
+1 14 90 -20 -140 1 0 0 0 1 0 0 0 1 30258p02.dat
+1 4 -50 -8 -230 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -10 -24 -230 1 0 0 0 1 0 0 0 1 3626bp3n.dat
+1 14 30 -24 -230 1 0 0 0 1 0 0 0 1 3626cpb1358.dat
+0 STEP
+
+```
+
+In more traditional code, this might look like:
+
+```l-lang
+X = Y
+if Z > Y then X = Z
+```
+
+X, Y, and Z being the three minifigure heads of `3626bp3n`, `3626cp8m`, `3626cpb1358`.
+
+This would create a part set that looks like:
+
+![Brick parts to do a simple if/then](images/conditional.png)
+
 ### Loops
 
 ### Additional functions
 
 ## Advanced Features
 
-Advanced features are intended as a convenience but may sometimes bend the rules and conventions established above.
+Advanced features are intended as a convenience but may sometimes bend the rules and conventions established above, particularly by doing things that aren't possible within the standard IDE.
 
 ### Comments
 
@@ -244,7 +296,7 @@ Multiple assignments can be made like this, just using any original token value 
 0 !TOKEN 3626ap01=92926
 ```
 
-In this case, `3626ap01` is a minifigure head (![minifigure head](images/3626ap0125.png)), and `4738a`, `18742`, and `92926` are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With this line, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
+In this case, `3626ap01` is a minifigure head (![minifigure head](images/3626ap0125.png)), and `4738a`, `18742`, and `92926` are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With these lines, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
 
 These mappings can also be done on one line, separated with commas (but no spaces), like so:
 
