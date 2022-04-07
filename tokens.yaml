@@ -1,0 +1,36 @@
+# This file is meant to be a machine readable version of the L language
+# specification. The bricks assigned to the various tokens, along with
+# literal values used are all noted here. This file should be able to be
+# read and used as an internal map for categorizing tokens when reading
+# the .ldr file.
+
+literals:
+  a: [3070bpb009,3005pta]
+  b: [3070bpb009,3005ptb]
+  c: [3070bpb009,3005ptc]
+  d: [3070bpb009,3005ptd]
+  e: [3070bpb009,3005pte]
+  f: [3070bpb009,3005ptf]
+  g: [3070bpb009,3005ptg]
+  h: [3070bpb009,3005pth]
+  i: [3070bpb009,3005pti]
+  j: [3070bpb009,3005ptj]
+  k: [3070bpb009,3005ptk]
+  l: [3070bpb009,3005ptl]
+  m: [3070bpb009,3005ptm]
+  n: [3070bpb009,3005ptn]
+  o: [3070bpb009,3005pto]
+  p: [3070bpb009,3005ptp]
+  q: [3070bpb009,3005ptq]
+  r: [3070bpb009,3005ptr]
+  s: [3070bpb009,3005pts]
+  t: [3070bpb009,3005ptt]
+  u: [3070bpb009,3005ptu]
+  v: [3070bpb009,3005ptv]
+  w: [3070bpb009,3005ptw]
+  x: [3070bpb009,3005ptx]
+  y: [3070bpb009,3005pty]
+  z: [3070bpb009,3005ptz]
+
+tokens:
+  if: [2412b]
