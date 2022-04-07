@@ -218,6 +218,8 @@ Instead of the clip, there's also a 1x1 block with an "=" pattern on it (part `3
 | 1x1 brick with a "plus" sign, `3005ptplusb` (![empty window frame](images/3005ptplusb25.png)) | plus  |  |
 | 1x1 brick with a "minus" sign, `3005ptpminusb` (![empty window frame](images/3005ptpminusb25.png)) | minus  |  |
 
+Generally these will be used with assignments to create commands like "X = Y + 5".
+
 ### Comparison
 
 To get the programmatic equivalent of "If \<x\>, then \<y\>" we have to create some way to do comparisons.
@@ -268,9 +270,76 @@ This would create a part set that looks like:
 
 ### Loops
 
+Loops function similar to other languages `while` loops. Functionally they look like this: `while <condition is true> <do actions>`
+
+The `while` token is a turntable, `3680c02` (![turntable](images/3680c0225.png)). It should be followed by a variable that will be checked. While that variable is true, the following commands will execute until the next STEP command.
+
+This might look like this:
+```l-lang
+while X
+  Y = Y + 1
+```
+
+Take care in your loops to ensure the loop can actually exit (the one above isn't likely to since X doesn't ever change).
+
+While not very exciting, here's a loop example that simulates multiplying two numbers:
+
+```l-lang
+X = 4
+Y = 5
+
+while X
+  Z = Z + Y
+  X = X - 1
+```
+
+Because zero (0) evaluates as False, this will run until X equals zero, ultimately ending with Z equaling 20.
+
+In L, this will look like this:
+
+```l-lang
+1 4 -70 -8 110 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -30 -24 110 1 0 0 0 1 0 0 0 1 3626bpb0450.dat
+1 15 10 -24 110 1 0 0 0 1 0 0 0 1 3005pt4.dat
+0 STEP
+1 4 -70 -8 50 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -30 -24 50 1 0 0 0 1 0 0 0 1 3626cp8q.dat
+1 15 10 -24 50 1 0 0 0 1 0 0 0 1 3005pt5.dat
+0 STEP
+1 3 -80 -8 -20 1 0 0 0 1 0 0 0 1 3680c02.dat
+1 14 -30 -24 -10 1 0 0 0 1 0 0 0 1 3626bpb0450.dat
+1 16 -10 0 -100 1 0 0 0 1 0 0 0 1 multiply
+0 STEP
+0 NOFILE
+0 FILE multiply
+1 4 -80 -8 30 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -40 -24 30 1 0 0 0 1 0 0 0 1 3626bpc87.dat
+1 14 0 -24 30 1 0 0 0 1 0 0 0 1 3626bpc87.dat
+1 15 40 -24 30 1 0 0 0 1 0 0 0 1 3005pwl.dat
+1 14 80 -24 30 1 0 0 0 1 0 0 0 1 3626cp8q.dat
+0 STEP
+1 4 -80 -8 -30 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -40 -24 -30 1 0 0 0 1 0 0 0 1 3626bpb0450.dat
+1 14 0 -24 -30 1 0 0 0 1 0 0 0 1 3626bpb0450.dat
+1 15 40 -24 -30 1 0 0 0 1 0 0 0 1 3005pwm.dat
+1 15 80 -24 -30 1 0 0 0 1 0 0 0 1 3005pt1.dat
+0 STEP
+0 NOFILE
+```
+
+Which would render to this:
+
+![multiplication](images/multiply.png)
+
+And should leave the head with the ski goggles there with a value of 20.
+
+Note: Above we had to use a submodel to group our two commands (`Z = Z + Y`and `X = X - 1`). See below under command grouping for more details on that.
+
+
+
 ### Additional functions
 
-### Custom functions
+### Command grouping and creating new functions
 
 ## Advanced Features
 
