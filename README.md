@@ -10,7 +10,7 @@ General specification for the L language, leveraging LEGO CAD programs (like [st
 
 L is a language that takes the standard file format of LEGO CAD programs and should be able to interpret the file not as a LEGO model, but instead as programming code, often outputting a new LEGO model.
 
-While nothing in here should be taken seriously, the language itself takes itself seriously, and actual programs (within limits) can be made using it.
+While nothing in here should be taken seriously, the language itself takes itself seriously, and actual programs (within limits) can be made using it. Using L you should be able to compile a pirate ship into a race car, and isn't that why we all wanted to learn to program in the first place?
 
 This language spec makes some assumptions that you have some coding background, but as much as possible is trying to limit how much technical depth you need to catch it all.
 
@@ -18,7 +18,7 @@ This language spec makes some assumptions that you have some coding background, 
 
 "Why?" is often a hard question to answer, and in this case it may be harder than usual. There's little to "learn" here - learning how to make a complier is documented better than this ever will, and learning to code could be done by picking any other language - but there is joy to be found. And that, joy, is good enough.
 
-If any of this language brings you joy, either by laughing at the standard, or by trying your hand at compiling a pirate ship into a car, then this language has done what it has set out to do.
+If any of this language brings you joy, either by laughing at the standard, or by trying your hand at compiling that pirate ship into a car, then this language has done what it has set out to do.
 
 ### Goal: Turing complete
 
@@ -187,7 +187,7 @@ There are a few other defined constants that can be helpful:
 
 | Part  | Value  | Notes  |
 |---|---|---|
-| Window frame with no glass pane, `60592` (![empty window frame](images/6059225.png)) | Null  | Helpful to compare if a variable is empty or similar null results  |
+| Window frame with no glass pane, `60592` (![empty window frame](images/6059225.png)) | Null  | Helpful to compare if a variable is empty or similar null results. Assigning a variable to this will clear that variable (similar to `x = ""`)  |
 
 ### Assignments
 
@@ -335,11 +335,19 @@ And should leave the head with the ski goggles there with a value of 20.
 
 Note: Above we had to use a submodel to group our two commands (`Z = Z + Y`and `X = X - 1`). See below under command grouping for more details on that.
 
-
-
 ### Additional functions
 
 ### Command grouping and creating new functions
+
+### Adding blocks without them being interpreted
+
+OK. You now have your cool program that calculates the last digit of pi. But it just looks like a pile of arbitrary parts. These can be rearranged, sure, but how do we go about adding more parts to help make the model into something that also looks great?
+
+This can be handled by adding a stop sign into your code. This sign signifies the end of "code", but doesn't need to be the end of your model. More parts, steps, submodels, anything you want can be added at this point to continue the model without affecting the results of the program.
+
+| Part         | Use     | Notes |
+|--------------|-----------|------------|
+| Stop sign, `890px1` (![stop sign](images/890px125.png)) | End-of-code marker      | Marks the end of code - all blocks after this point will be ignored. |
 
 ## Advanced Features
 
