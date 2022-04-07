@@ -189,6 +189,8 @@ There are a few other defined constants that can be helpful:
 |---|---|---|
 | Window frame with no glass pane, `60592` (![empty window frame](images/6059225.png)) | Null  | Helpful to compare if a variable is empty or similar null results. Assigning a variable to this will clear that variable (similar to `x = ""`)  |
 
+Beyond that, any other brick or piece is considered a literal of that part. This means you can have a variable hold the value of "2x4 brick", for instance.
+
 ### Assignments
 
 There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
@@ -337,7 +339,40 @@ Note: Above we had to use a submodel to group our two commands (`Z = Z + Y`and `
 
 ### Additional functions
 
+| Part         | Operator     | Notes |
+|--------------|-----------|------------|
+| simple envelope, `3069bp01` (![simple envelope](images/3069bp0125.png)) | Print      | Will output the value of everything until the next STEP. Minifigures (variables) will output their stored value.        |
+| envelope with formatting, `3069bpb0851` (![simple envelope](images/3069bpb085125.png)) | Print with location      | Same as print above, but instead of print deciding the next appropriate, you can set the location of the output. |
+
 ### Command grouping and creating new functions
+
+LDraw files have the concept of submodels. A model of a house, for instance, may make the trees outside a submodel, and then some of the furnishings could themselves be submodels. This creates logical groupings of parts of a larger model.
+
+We use them in L to create logical collections of commands. Commands that only accept one action (if and while, most notably) can take one action that itself is a submodel. This creates a sort of pointer to a group of actions that are then treated as one. The programmatic equivalent of a set of parentheses.
+
+In LDraw, a submodel has a name and marked as a "file" within the file:
+
+```l-lang
+1 4 -70 -8 110 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -30 -24 110 1 0 0 0 1 0 0 0 1 3626bpb0450.dat
+1 15 10 -24 110 1 0 0 0 1 0 0 0 1 3005pt4.dat
+0 STEP
+1 16 -10 0 -100 1 0 0 0 1 0 0 0 1 substeps
+0 STEP
+0 NOFILE
+0 FILE substeps
+1 4 -80 -8 -30 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -40 -24 -30 1 0 0 0 1 0 0 0 1 3626bpb0450.dat
+1 14 0 -24 -30 1 0 0 0 1 0 0 0 1 3626bpb0450.dat
+1 15 40 -24 -30 1 0 0 0 1 0 0 0 1 3005pwm.dat
+1 15 80 -24 -30 1 0 0 0 1 0 0 0 1 3005pt1.dat
+0 STEP
+0 NOFILE
+```
+
+The main parts of this are the marker `0 NOFILE` which notes the end of that "file" within the file, and then `0 FILE <name>`, which should end with its own `0 NOFILE` line. With that created, you can reference that submodel by the name given in the `0 FILE` line.
+
+In most CAD programs (like stud.io), you can typically just select a set of parts and turn them into a submodel and the rest is all handled for you.
 
 ### Adding blocks without them being interpreted
 
