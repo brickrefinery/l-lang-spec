@@ -1,0 +1,18 @@
+0 Print Test
+0 Name: print.ldr
+0 Author: Herbie Kay
+0 // This file does roughly the equivalent of:
+0 // x = "hello"
+0 // print x
+1 4 -70 -8 50 1 0 0 0 1 0 0 0 1 4085a.dat
+1 14 -30 -24 50 1 0 0 0 1 0 0 0 1 3626cp88.dat
+1 15 10 -24 50 1 0 0 0 1 0 0 0 1 3005pth.dat
+1 15 30 -24 50 1 0 0 0 1 0 0 0 1 3005pte.dat
+1 15 50 -24 50 1 0 0 0 1 0 0 0 1 3005ptl.dat
+1 15 70 -24 50 1 0 0 0 1 0 0 0 1 3005ptl.dat
+1 15 90 -24 50 1 0 0 0 1 0 0 0 1 3005pto.dat
+0 STEP
+1 15 -60 -8 -10 1 0 0 0 1 0 0 0 1 3069bp01.dat
+1 14 -10 -24 -10 1 0 0 0 1 0 0 0 1 3626cp88.dat
+0 STEP
+
