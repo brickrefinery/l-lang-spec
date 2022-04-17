@@ -43,7 +43,7 @@ Impose as few limitations on your construction as possible to implement the lang
 
 Wherever possible, choose parts for tokens that imply what they represent.
 
-**Practical example:** Minifigure heads <nobr>(![minifigure head](images/3626ap0125.png))</nobr> used as variable names since their "brains" are what hold the information.
+**Practical example:** Minifigure heads (![minifigure head](images/3626ap0125.png)) used as variable names since their "brains" are what hold the information.
 
 ### Goal: Coding done within an IDE (like stud.io)
 
@@ -151,8 +151,8 @@ A few variables are set aside as special and should have additional consideratio
 
 | Part         | Use     | Notes |
 |--------------|-----------|------------|
-| Basic smiley head, `3626ap01` <nobr>(![smiley head](images/3626ap0125.png))</nobr> | Command line args      | Additional command line args passed into the script will be put here        |
-| Basic smiley head, female, `3626cpb0633`  <nobr>(![smiley head, female](images/3626cpb063325.png))</nobr>   | Function args | Any arguments when calling a function will be placed into this variable. This variable can also be used to store return values from functions.      |
+| Basic smiley head, `3626ap01` (![smiley head](images/3626ap0125.png)) | Command line args      | Additional command line args passed into the script will be put here        |
+| Basic smiley head, female, `3626cpb0633`  (![smiley head, female](images/3626cpb063325.png))   | Function args | Any arguments when calling a function will be placed into this variable. This variable can also be used to store return values from functions.      |
 
 ### Constants
 
@@ -178,8 +178,8 @@ Letter blocks (similar to the numbers, above) also function as letters. Those pa
 
 | Part  | Value  | Notes  |
 |---|---|---|
-| Technic pin, `2780` <nobr>(![technic pin](images/278025.png))</nobr> | True  | All numbers except zero will return true, as will any variable that has text of at least one character in length. |
-| Technic half pin, `4274` <nobr>(![technic half pin](images/427425.png))</nobr> | False  | "Is the pin whole?" Variables that evaluate to an empty string ("") or evaluate to zero will evaluate to false |
+| Technic pin, `2780` (![technic pin](images/278025.png)) | True  | All numbers except zero will return true, as will any variable that has text of at least one character in length. |
+| Technic half pin, `4274` (![technic half pin](images/427425.png)) | False  | "Is the pin whole?" Variables that evaluate to an empty string ("") or evaluate to zero will evaluate to false |
 
 #### Other Constants
 
@@ -187,13 +187,13 @@ There are a few other defined constants that can be helpful:
 
 | Part  | Value  | Notes  |
 |---|---|---|
-| Window frame with no glass pane, `60592` <nobr>(![empty window frame](images/6059225.png))</nobr> | Null  | Helpful to compare if a variable is empty or similar null results. Assigning a variable to this will clear that variable (similar to `x = ""`)  |
+| Window frame with no glass pane, `60592` (![empty window frame](images/6059225.png)) | Null  | Helpful to compare if a variable is empty or similar null results. Assigning a variable to this will clear that variable (similar to `x = ""`)  |
 
 Beyond that, any other brick or piece is considered a literal of that part. This means you can have a variable hold the value of "2x4 brick", for instance.
 
 ### Assignments
 
-There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` <nobr>(![a LEGO clip](images/4085a25.png))</nobr>. An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
+There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
 
 So, to look back up to our original assignment question of "x = 10", let's create that now:
 
@@ -217,8 +217,8 @@ Instead of the clip, there's also a 1x1 block with an "=" pattern on it (part `3
 
 | Part  | Value  | Notes  |
 |---|---|---|
-| 1x1 brick with a "plus" sign, `3005ptplusb` <nobr>(![empty window frame](images/3005ptplusb25.png))</nobr> | plus  |  |
-| 1x1 brick with a "minus" sign, `3005ptpminusb` <nobr>(![empty window frame](images/3005ptpminusb25.png))</nobr> | minus  |  |
+| 1x1 brick with a "plus" sign, `3005ptplusb` (![empty window frame](images/3005ptplusb25.png)) | plus  |  |
+| 1x1 brick with a "minus" sign, `3005ptpminusb` (![empty window frame](images/3005ptpminusb25.png)) | minus  |  |
 
 Generally these will be used with assignments to create commands like "X = Y + 5".
 
@@ -226,17 +226,17 @@ Generally these will be used with assignments to create commands like "X = Y + 5
 
 To get the programmatic equivalent of "If \<x\>, then \<y\>" we have to create some way to do comparisons.
 
-The grill piece, part 2412 <nobr>(![a grill piece](images/2412b25.png))</nobr>, seems appropriate here since it implies that some things could slip through the grill and some things can't. Sort of an "if this is small enough..." analogy.
+The grill piece, part 2412 (![a grill piece](images/2412b25.png)), seems appropriate here since it implies that some things could slip through the grill and some things can't. Sort of an "if this is small enough..." analogy.
 
 The full list of comparison operators is here:
 
 | Part         | Operator     | Notes |
 |--------------|-----------|------------|
-| 2x1 tile with grill, `2412` <nobr>(![a grill piece](images/2412b25.png))</nobr> | "If"      | See below for example usage        |
-| Road side with turn arrow, `30258pb005` <nobr>(![road sign with turn arrow](images/30258pb00525.png))</nobr> | "Then"      | Used to mark the break between the if and the actions to take. See below for usage example.        |
-| 1x1 brick with clip, `30241b` <nobr>(![1x1 brick with clip](images/30241b25.png))</nobr>   | Equals | This part parallels the assignment operator (a clip) and is meant to evoke the question "does it clip?" |
-| 1x1 double slope, `35464` <nobr>(![1x1 double slope](images/3546425.png))</nobr>   | Less than | Requires numeric arguments |
-| 2x2 double slope, `3043` <nobr>(![2x2 double slope](images/304325.png))</nobr>   | Greater than | Requires numeric arguments |
+| 2x1 tile with grill, `2412` (![a grill piece](images/2412b25.png)) | "If"      | See below for example usage        |
+| Road side with turn arrow, `30258pb005` (![road sign with turn arrow](images/30258pb00525.png)) | "Then"      | Used to mark the break between the if and the actions to take. See below for usage example.        |
+| 1x1 brick with clip, `30241b` (![1x1 brick with clip](images/30241b25.png))   | Equals | This part parallels the assignment operator (a clip) and is meant to evoke the question "does it clip?" |
+| 1x1 double slope, `35464` (![1x1 double slope](images/3546425.png))   | Less than | Requires numeric arguments |
+| 2x2 double slope, `3043` (![2x2 double slope](images/304325.png))   | Greater than | Requires numeric arguments |
 
 An example of this might be to create a sort of "max" value check. Make X = the max number of the variables Y and Z. (in other languages this might look like `X = max(Y, Z)`, for instance).
 
@@ -274,7 +274,7 @@ This would create a part set that looks like:
 
 Loops function similar to other languages `while` loops. Functionally they look like this: `while <condition is true> <do actions>`
 
-The `while` token is a turntable, `3680c02` <nobr>(![turntable](images/3680c0225.png))</nobr>. It should be followed by a variable that will be checked. While that variable is true, the following commands will execute until the next STEP command.
+The `while` token is a turntable, `3680c02` (![turntable](images/3680c0225.png)). It should be followed by a variable that will be checked. While that variable is true, the following commands will execute until the next STEP command.
 
 This might look like this:
 ```l-lang
@@ -341,8 +341,10 @@ Note: Above we had to use a submodel to group our two commands (`Z = Z + Y`and `
 
 | Part         | Operator     | Notes |
 |--------------|-----------|------------|
-| simple envelope, `3069bp01` <nobr>(![simple envelope](images/3069bp0125.png))</nobr> | Print      | Will output the value of everything until the next STEP. Minifigures (variables) will output their stored value.        |
-| envelope with formatting, `3069bpb0851` <nobr>(![simple envelope](images/3069bpb085125.png))</nobr> | Print with location      | Same as print above, but instead of print deciding the next appropriate, you can set the location of the output. |
+| simple envelope, `3069bp01` (![simple envelope](images/3069bp0125.png)) | Print      | Will output the value of everything until the next STEP. Minifigures (variables) will output their stored value.        |
+| envelope with formatting, `3069bpb0851` (![simple envelope](images/3069bpb085125.png)) | Print with location      | Same as print above, but instead of print deciding the next appropriate, you can set the location of the output. |
+
+See [print.md](print.md) for more specifics on what these two commands output.
 
 ### Command grouping and creating new functions
 
@@ -382,7 +384,7 @@ This can be handled by adding a stop sign into your code. This sign signifies th
 
 | Part         | Use     | Notes |
 |--------------|-----------|------------|
-| Stop sign, `890px1` <nobr>(![stop sign](images/890px125.png))</nobr> | End-of-code marker      | Marks the end of code - all blocks after this point will be ignored. |
+| Stop sign, `890px1` (![stop sign](images/890px125.png)) | End-of-code marker      | Marks the end of code - all blocks after this point will be ignored. |
 
 ## Advanced Features
 
@@ -402,7 +404,7 @@ This form of commenting is already part of the LDraw spec and isn't changed or s
 
 ### Token mapping
 
-Using META commands, we can tell the interpreter to also consider a piece to count as another piece. The practical effect of this is to allow you to *not* use a part in your construction. For instance, if you were making your program into a boat, and didn't want to use the grill piece <nobr>(![A LEGO grill piece](images/2412b25.png))</nobr> as your "if" command.
+Using META commands, we can tell the interpreter to also consider a piece to count as another piece. The practical effect of this is to allow you to *not* use a part in your construction. For instance, if you were making your program into a boat, and didn't want to use the grill piece (![A LEGO grill piece](images/2412b25.png)) as your "if" command.
 
 There are thousands of "undefined" parts available for use, intentionally including some of the most common bricks. You can utilize these by mapping them to a specific token.
 
@@ -412,7 +414,7 @@ The META command to do this in your code looks like this:
 0 !LLANG TOKEN 2412=3001
 ```
 
-This TOKEN command will then add the part `3001`, a generic 2x4 brick <nobr>(![a 2x4 brick](images/300125.png))</nobr>, to whatever token `2412` is assigned to (`2412` is that grill piece, so in this case it's making it an 'if' command).
+This TOKEN command will then add the part `3001`, a generic 2x4 brick (![a 2x4 brick](images/300125.png)), to whatever token `2412` is assigned to (`2412` is that grill piece, so in this case it's making it an 'if' command).
 
 Multiple assignments can be made like this, just using any original token value to map to any others. These commands, for instance, create a few new variable options:
 
@@ -422,7 +424,7 @@ Multiple assignments can be made like this, just using any original token value 
 0 !LLANG TOKEN 3626ap01=92926
 ```
 
-In this case, `3626ap01` is a minifigure head <nobr>(![minifigure head](images/3626ap0125.png))</nobr>, and `4738a`, `18742`, and `92926` are a treasure chest <nobr>(![a treasure chest](images/4738a25.png))</nobr>, a bucket <nobr>(![a bucket](images/1874225.png))</nobr>, and a trash can <nobr>(![a trash can](images/9292625.png))</nobr>. With these lines, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
+In this case, `3626ap01` is a minifigure head (![minifigure head](images/3626ap0125.png)), and `4738a`, `18742`, and `92926` are a treasure chest (![a treasure chest](images/4738a25.png)), a bucket (![a bucket](images/1874225.png)), and a trash can (![a trash can](images/9292625.png)). With these lines, all of which are now usable as variables just the same as any minifigure head. In this example, any existing variable (any minifigure head) could have been used to create the mapping.
 
 These mappings can also be done on one line, separated with commas (but no spaces), like so:
 
