@@ -1,6 +1,7 @@
-0 Print Test
-0 Name: print-output.ldr
-0 Author: Herbie Kay
+0 L Lang output
+0 Name: output.ldr
+0 // This output was generated using the L language, using a
+0 // LEGO CAD file (ldr file) input to compile into these results.
 1 15 10 0 10 1 0 0 0 1 0 0 0 1 3005pth.dat
 1 15 50 0 10 1 0 0 0 1 0 0 0 1 3005pte.dat
 1 15 90 0 10 1 0 0 0 1 0 0 0 1 3005ptl.dat

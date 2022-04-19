@@ -1,9 +1,12 @@
-0 Print Test
-0 Name: print.ldr
+0 Print command line arg test
+0 Name: print_args.ldr
 0 Author: Herbie Kay
 0 // This file does roughly the equivalent of:
 0 // x = "hello"
 0 // print x
+0 // print (args)
+0 // Note: output will vary based on what command line arg is passed.
+0 //       for the validation file, 'herbie' is used for testing.
 1 14 -30 -24 50 1 0 0 0 1 0 0 0 1 3626cp88.dat
 1 4 -70 -8 50 1 0 0 0 1 0 0 0 1 4085a.dat
 1 15 10 -24 50 1 0 0 0 1 0 0 0 1 3005pth.dat
@@ -14,4 +17,7 @@
 0 STEP
 1 15 -60 -8 -10 1 0 0 0 1 0 0 0 1 3069bp01.dat
 1 14 -10 -24 -10 1 0 0 0 1 0 0 0 1 3626cp88.dat
+0 STEP
+1 15 -60 -8 -10 1 0 0 0 1 0 0 0 1 3069bp01.dat
+1 14 -10 -24 -10 1 0 0 0 1 0 0 0 1 3626ap01.dat
 0 STEP
