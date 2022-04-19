@@ -193,13 +193,13 @@ Beyond that, any other brick or piece is considered a literal of that part. This
 
 ### Assignments
 
-There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like "Clip \<variable\> \<value to assign\>". To end the command, mark it with a STEP command.
+There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like `<variable> Clip <value to assign>". To end the command, mark it with a STEP command.
 
 So, to look back up to our original assignment question of "x = 10", let's create that now:
 
 ```l-lang
-1 1 -110 -8 -30 1 0 0 0 1 0 0 0 1 4085a.dat
 1 4 -70 -24 -50 1 0 0 0 1 0 0 0 1 3626cpb3.dat
+1 1 -110 -8 -30 1 0 0 0 1 0 0 0 1 4085a.dat
 1 15 -30 -24 -50 1 0 0 0 1 0 0 0 1 3005pt1.dat
 1 15 -10 -24 -50 1 0 0 0 1 0 0 0 1 3005pt0.dat
 0 STEP
