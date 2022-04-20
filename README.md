@@ -14,6 +14,7 @@ While nothing in here should be taken seriously, the language itself takes itsel
 
 This language spec makes some assumptions that you have some coding background, but as much as possible is trying to limit how much technical depth you need to catch it all.
 
+There is an in-progress interpreter of this language spec written in Python at the repo [l-lang-python](https://github.com/brickrefinery/l-lang-python). All test files in this repo were generated via that implementation.
 ## Philosophy
 
 "Why?" is often a hard question to answer, and in this case it may be harder than usual. There's little to "learn" here - learning how to make a complier is documented better than this ever will, and learning to code could be done by picking any other language - but there is joy to be found. And that, joy, is good enough.
