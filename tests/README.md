@@ -13,6 +13,6 @@ Each file should be in a pair:
 |--------------|-----------|------------|
 | print.ldr | Simple print command      | x='hello'; print x |
 | print_args.ldr   | Print command line args | x='hello'; print x; print(args) |
-| math_plus.ldr | Addition test |  |
-| math_minus.ldr |  |  |
+| math_plus.ldr | Addition test | x=10+3; x=x+25; print x |
+| math_minus.ldr | Subtraction test | x=10-3; x=x-5; print x |
 | meta.ldr | Add and use tokens using the META LLANG TOKEN command | x='hello'; print x (swapping out "=" and "print" for new tokens) |
