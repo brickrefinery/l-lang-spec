@@ -1,6 +1,6 @@
 # L Test Files
 
-This folder contains a colletion of test files that can be used to test an implementation of L.
+This folder contains a collection of test files that can be used to test an implementation of L.
 
 Each file should be in a pair:
 
@@ -13,3 +13,6 @@ Each file should be in a pair:
 |--------------|-----------|------------|
 | print.ldr | Simple print command      | x='hello'; print x |
 | print_args.ldr   | Print command line args | x='hello'; print x; print(args) |
+| math_plus.ldr | Addition test |  |
+| math_minus.ldr |  |  |
+| meta.ldr | Add and use tokens using the META LLANG TOKEN command | x='hello'; print x (swapping out "=" and "print" for new tokens) |

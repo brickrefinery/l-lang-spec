@@ -1,0 +1,6 @@
+0 L Lang output
+0 Name: output.ldr
+0 // This output was generated using the L language, using a
+0 // LEGO CAD file (ldr file) input to compile into these results.
+1 15 10 0 10 1 0 0 0 1 0 0 0 1 3005pt2.dat
+0 STEP

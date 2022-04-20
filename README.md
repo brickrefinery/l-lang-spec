@@ -152,7 +152,6 @@ A few variables are set aside as special and should have additional consideratio
 | Part         | Use     | Notes |
 |--------------|-----------|------------|
 | Basic smiley head, `3626ap01` (![smiley head](images/3626ap0125.png)) | Command line args      | Additional command line args passed into the script will be put here        |
-| Basic smiley head, female, `3626cpb0633`  (![smiley head, female](images/3626cpb063325.png))   | Function args | Any arguments when calling a function will be placed into this variable. This variable can also be used to store return values from functions.      |
 
 ### Constants
 
@@ -193,7 +192,7 @@ Beyond that, any other brick or piece is considered a literal of that part. This
 
 ### Assignments
 
-There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like `<variable> Clip <value to assign>". To end the command, mark it with a STEP command.
+There isn't a fun piece that looks like an equal sign, so instead we're going to clip parts (values) together with a LEGO clip, part `4085a` (![a LEGO clip](images/4085a25.png)). An assignment will look like `<variable> Clip <value to assign>`. To end the command, mark it with a STEP command.
 
 So, to look back up to our original assignment question of "x = 10", let's create that now:
 
@@ -277,6 +276,7 @@ Loops function similar to other languages `while` loops. Functionally they look 
 The `while` token is a turntable, `3680c02` (![turntable](images/3680c0225.png)). It should be followed by a variable that will be checked. While that variable is true, the following commands will execute until the next STEP command.
 
 This might look like this:
+
 ```l-lang
 while X
   Y = Y + 1
