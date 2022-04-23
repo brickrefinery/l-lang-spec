@@ -17,10 +17,18 @@ This language spec makes some assumptions that you have some coding background, 
 There is an in-progress interpreter of this language spec written in Python at the repo [l-lang-python](https://github.com/brickrefinery/l-lang-python). All test files in this repo were generated via that implementation.
 ## Philosophy
 
-"Why?" is often a hard question to answer, and in this case it may be harder than usual. There's little to "learn" here - learning how to make a complier is documented better than this ever will, and learning to code could be done by picking any other language - but there is joy to be found. And that, joy, is good enough.
+Almost all "low code/no code" solutions that companies offer will eventually have a blog post talking about how their product is "like coding with LEGO blocks". Just do a web search for "low-code lego" and you'll get lots of them. This sparked the idea "if low-code is 'like coding with LEGO blocks' ... could we actually just ... code with LEGO blocks?" Since Stud.io is already an excellent LEGO CAD program it immediately made sense as the IDE of the programming language and the rest just sort of spilled out.
+
+For a project like this "but, why?" is often a hard question to answer, and in this case it may be harder than usual. There's little to "learn" here - learning how to make a complier is documented better than this ever will, and learning to code could be done by picking any other language - but there is joy to be found. And that, joy, is good enough.
 
 If any of this language brings you joy, either by laughing at the standard, or by trying your hand at compiling that pirate ship into a car, then this language has done what it has set out to do.
 
+I think this sort of project is best summed up by this quote:
+> *There is great beauty in inventing things that serve no purpose.* -- William Lyttle
+
+## Goals
+
+This project was conceived of around a handful of small goals that I wanted to try to hit as a part of a project like this.
 ### Goal: Turing complete
 
 As its first goal, this language should be [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness), but that's a fairly straightforward bar. Still, it feels right that we should be able to get this.
